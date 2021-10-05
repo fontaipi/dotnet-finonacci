@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>Pierre.Fontaine.Fibonacci</PackageId>
   </PropertyGroup>
 
 </Project>
