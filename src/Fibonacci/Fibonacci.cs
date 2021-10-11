@@ -8,11 +8,16 @@ namespace Fibonacci
 {
     public class Compute
     {
-        public static async Task<List<long>> ExecuteAsync(string[] arguments)
+
+        private readonly FibonacciDataContext _dataContext;
+        public Compute(FibonacciDataContext dataContext)
         {
-            await using var dataContext = new FibonacciDataContext();
-            var results = await RunFibonaccisAsync(dataContext, arguments);
-            await dataContext.SaveChangesAsync();
+            _dataContext = dataContext;
+        }
+        public async Task<List<long>> ExecuteAsync(string[] arguments)
+        {
+            var results = await RunFibonaccisAsync(_dataContext, arguments);
+            await _dataContext.SaveChangesAsync();
             return results;
         }
 
