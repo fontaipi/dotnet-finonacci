@@ -15,7 +15,7 @@ namespace Fibonacci.Tests
             var dataBaseName = Guid.NewGuid().ToString();
             builder.UseInMemoryDatabase(dataBaseName);
             var options = builder.Options;
-            
+
             var fibonacciDataContext = new FibonacciDataContext(options);
             await fibonacciDataContext.Database.EnsureCreatedAsync();
             var fibonacciService = new Compute(fibonacciDataContext);
